@@ -96,7 +96,7 @@ class PostController extends Controller
                 }
                 $image = $request->file('image');
                 $imageName = $image->hashName();
-                $imagePath = $image->storeAs('/images', $imageName, 'public')
+                $imagePath = $image->storeAs('/images', $imageName, 'public');
             }
 
             Post::update([
@@ -109,7 +109,7 @@ class PostController extends Controller
 
         }
         catch (\Exception $e) {
-            return back()_.withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage() ]);
         }
     }
 
@@ -119,14 +119,14 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         try{
-            if ($post->$image)) {
+            if ($post->$image) {
             Storage::disk('public')->delete($post->image);
         }
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
-        }catch {
-            return back()->withErrors('error' => 'An error occured .' . $e->getMessage());
+        }catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occured .' . $e->getMessage()]);
         }
     }
 }
