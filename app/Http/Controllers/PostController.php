@@ -47,7 +47,7 @@ class PostController extends Controller
 
             $image = $request->file('image');
             $imageName = $image->hashName();
-            $imagePath = $image->storeAs('storage/images', $imageName);
+            $imagePath = $image->storeAs('/images', $imageName , 'public');
 
             Post::create([
                 'barang' => $request->input('barang'),
@@ -96,7 +96,7 @@ class PostController extends Controller
                 }
                 $image = $request->file('image');
                 $imageName = $image->hashName();
-                $imagePath = $image->storeAs('public/images', $imageName)
+                $imagePath = $image->storeAs('/images', $imageName, 'public')
             }
 
             Post::update([
