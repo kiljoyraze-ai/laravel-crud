@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('Barang');
             $table->integer('Quantity');
-            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
