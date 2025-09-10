@@ -54,7 +54,7 @@
   <body>
     <div id="root">
 
-        < class="container">
+        <div class="container">
           <!-- Title and Top Buttons Start -->
           <div class="page-title-container">
             <div class="row">
