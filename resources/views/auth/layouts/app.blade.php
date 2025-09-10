@@ -1,6 +1,4 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
+
 <!DOCTYPE html>
 <html
   lang="en"
@@ -56,7 +54,7 @@
   <body>
     <div id="root">
 
-        <div class="container">
+        < class="container">
           <!-- Title and Top Buttons Start -->
           <div class="page-title-container">
             <div class="row">
@@ -74,6 +72,8 @@
               <!-- Title End -->
             </div>
           </div>
+            
+            
           <!-- Title and Top Buttons End -->
 
           <!-- Content Start -->
@@ -86,7 +86,7 @@
           <div class="container">
             <div class="row">
               <div class="col-12 col-sm-6">
-                <p class="mb-0 text-muted text-medium">Metik 2025</p>
+                <p class="mb-0 text-muted text-medium">INVENTARIS </p>
               </div>
             </div>
           </div>

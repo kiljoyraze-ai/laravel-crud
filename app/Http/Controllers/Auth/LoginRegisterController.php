@@ -17,8 +17,8 @@ class LoginRegisterController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('guest', except: ['posts', 'logout']),
-            new Middleware('auth', only: ['posts', 'logout']),
+            new Middleware('guest', except: ['home', 'logout']),
+            new Middleware('auth', only: ['home', 'logout']),
         ];
     }
 
@@ -44,7 +44,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
         $request->session()->regenerate();
-        return redirect()->route('posts.index')
+        return redirect()->route('home')
             ->with('You have successfully registered & logged in!');
     }
 
@@ -63,7 +63,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return redirect()->route('posts.index');
+            return redirect()->route('home');
         }
 
         return back()->withErrors([
@@ -74,7 +74,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
     
     public function home(): View
     {
-        return view('posts.index');
+        return view('home');
     } 
     
     public function logout(Request $request): RedirectResponse

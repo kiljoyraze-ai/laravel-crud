@@ -1,20 +1,17 @@
-@extends('layout')
-
-@section('content')
+@extends('auth.home')
+@section('layout')
     <h1>Posts</h1>
-    <a href="{{ route('posts.create') }}">create</a>
-
+    <a href="{{ route('posts.create') }}">create</
     @if ($message = Session::get('success'))
         <div>{{ $message }}</div>
-    @endif
-
-    <table>
+    @end
+    <table class="table table-bordered border-info">
         <thead>
             <tr>
-                <th>barang</th>
-                <th>quantity</th>
-                <th>images</th>
-                <th>action</th>
+                <th>Barang</th>
+                <th>Quantity</th>
+                <th>Gambar</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +23,7 @@
                         @if ($post->image)
                             <img src="{{ asset('storage/images/' . $post->image) }}" alt="image"
                             style="max-width: 150px; max-height: 150px;">
-                            @else
-                            No Image
+                            
                         @endif
                     </td>
                     <td><a href="{{ route('posts.show' , $post->id) }}">Show</a>
@@ -42,4 +38,6 @@
             @endforeach
         </tbody>
     </table>
-@endsection
+@endsection    
+    
+    
