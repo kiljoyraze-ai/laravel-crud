@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 @extends('layouts.app')
+=======
+
+@section('title', 'Register')
+
+@endsection
+>>>>>>> 725b9dd7f22144a69171df2f44febcd319493322
 
 @section('content')
 
