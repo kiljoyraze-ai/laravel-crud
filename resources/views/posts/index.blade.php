@@ -221,7 +221,7 @@
           <div class="card mb-2">
             <div class="card-body h-100">
               <h1>Posts</h1>
-              <a href="{{ route('posts.create') }}">create</a>
+              <a class="btn btn-primary" href="{{ route('posts.create') }}">Create New Post</a>
 
               @if ($message = Session::get('success'))
                   <div>{{ $message }}</div>
@@ -252,7 +252,7 @@
                               <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
-                                  <button type="submit">Delete</button>
+                                  <button class="btn btn-danger" type="submit">Delete</button>
                               </form>
                               </td>
                           </tr>

@@ -15,14 +15,19 @@
 
     <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <label>Barang: </label>
-        <input type="text" name="barang" value="{{ old('barang') }}">
-        <label>Quantity: </label>
-        <input type="text" name="quantity" value="{{ old('quantity') }}">
-        <label >Image: </label>
-        <input type="file" name="image" accept="image/jpeg,image/jpg,image/png,image/webp"
+        <div class="mb-3">
+            <label class="form-label">Barang </label>
+        <input class="form-control" type="text" name="barang" value="{{ old('barang') }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quantity </label>
+            <input class="form-control" type="text" name="quantity" value="{{ old('quantity') }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image </label>
+            <input class="form-control" type="file" name="image" accept="image/jpeg,image/jpg,image/png,image/webp"
             class="form-control @error('image') is-invalid @enderror">
-
-        <button type="submit">Submit</button>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 @endsection
