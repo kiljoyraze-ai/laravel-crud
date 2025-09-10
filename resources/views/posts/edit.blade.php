@@ -1,5 +1,5 @@
-@extends('layout')
-
+@extends('layouts.app')
+@section('title', 'Edit')
 @section('content')
     <h1>Edit Post</h1>
 
