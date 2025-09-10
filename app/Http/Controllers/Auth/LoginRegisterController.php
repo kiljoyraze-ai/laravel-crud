@@ -45,7 +45,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
         Auth::attempt($credentials);
         $request->session()->regenerate();
         return redirect()->route('posts.index')
-            ->withSuccess('You have successfully registered & logged in!');
+            ->with('You have successfully registered & logged in!');
     }
 
     public function login(): View
@@ -63,7 +63,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return redirect()->route('home');
+            return redirect()->route('posts.index');
         }
 
         return back()->withErrors([
@@ -83,6 +83,6 @@ class LoginRegisterController extends Controller implements HasMiddleware
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');
+            ->with('You have logged out successfully!');
     }
 }
