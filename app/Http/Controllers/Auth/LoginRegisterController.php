@@ -17,8 +17,8 @@ class LoginRegisterController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('guest', except: ['home', 'logout']),
-            new Middleware('auth', only: ['home', 'logout']),
+            new Middleware('guest', except: ['posts', 'logout']),
+            new Middleware('auth', only: ['posts', 'logout']),
         ];
     }
 
@@ -74,7 +74,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
     
     public function home(): View
     {
-        return view('home');
+        return view('posts.index');
     } 
     
     public function logout(Request $request): RedirectResponse

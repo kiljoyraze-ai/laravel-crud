@@ -4,14 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 
-Route::get('/login', 'login')->name('login');
-Route::get('/register', 'register')->name('register');
-Route::post('/authenticate', 'authenticate')->name('authenticate');
-
-
-Route::controller(LoginRegisterController::class)->group(function() {
-    Route::resource('posts', PostController::class);
+Route::controller(LoginRegisterController::class)->group(function(){
+    Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::get('/home', 'home')->name('home');
-    Route::get('/logout', 'logout')->name('logout');
+    Route::post('/logout', 'logout')->name('logout');
 });
+Route::resource('posts', PostController::class)->middleware('auth');
