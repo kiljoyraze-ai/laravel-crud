@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form action="{{ route('posts.store') }}" method="POST">
+    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>Barang: </label>
         <input type="text" name="barang" value="{{ old('barang') }}">
