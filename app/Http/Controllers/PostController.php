@@ -101,7 +101,7 @@ class PostController extends Controller
                 $imagePath = $image->storeAs('/images', $imageName, 'public');
             }
 
-            Post::update([
+            $post->update([
                 'barang' => $validateData['barang'],
                 'quantity' => $validateData['quantity'],
                 'image' => $imagePath,
