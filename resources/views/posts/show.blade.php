@@ -1,5 +1,5 @@
-@extends('layout')
-
+@extends('layouts.app')
+@section('title', 'Show')
 @section('content')
     <h1>Show Item</h1>
     <h3>{{ $post->barang }}</h3>
