@@ -40,27 +40,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       try  {
-            $validateData = $request->validate([
-                'barang' => 'required',
-                'quantity' => 'required',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
-            ]);
+        $validated = $request->validate([
+            'barang'   => 'required',
+            'quantity' => 'required',
+            'image'   => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+        ]);
 
-            $image = $request->file('image');
-            $imageName = $image->hashName();
-            $imagePath = $image->storeAs('/images', $imageName , 'public');
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('images', 'public');
+        }
 
-            Post::create([
-                'barang' => $request->input('barang'),
-                'quantity' => $request->input('quantity'),
-                'image' => $imageName,
-            ]);
+        Post::create($validated);
 
-            return redirect()->route('posts.index')->with('suucess', 'Post created successfully.');
-       }catch (\Exception $e){
-            return back()->withErrors(['error' => 'An error occured: '. $e->getMessage()]);
-       }
+        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
     }
 
     /**

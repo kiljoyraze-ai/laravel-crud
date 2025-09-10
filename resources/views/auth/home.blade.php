@@ -88,12 +88,11 @@
                 <div class="col-12 ps-1 mb-2">
                   <div class="text-extra-small text-primary">ACCOUNT</div>
                 </div>
-                    <li>
-                      <a href="{{ route('logout') }}">
-                        <i data-acorn-icon="logout" class="me-2" data-acorn-size="17"></i>
-                        <span class="align-middle">Logout</span>
-                      </a>
-                    </li>
+                  <ul>
+                   <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
                   </ul>
                 </div>
               </div>

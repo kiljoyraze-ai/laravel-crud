@@ -167,10 +167,10 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
-                        <i data-acorn-icon="logout" class="me-2" data-acorn-size="17"></i>
-                        <span class="align-middle">Logout</span>
-                      </a>
+                      <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                      </form>
                     </li>
                   </ul>
                 </div>

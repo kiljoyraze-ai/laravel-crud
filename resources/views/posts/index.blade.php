@@ -88,11 +88,12 @@
               <div class="row mb-3 ms-0 me-0">
                 <div class="col-12 ps-1 mb-2">
                   <div class="text-extra-small text-primary">ACCOUNT</div>
-                </div>
+                    </div>
                     <li>
-                      <a href="{{ route('logout') }}">
-                        <i data-acorn-icon="logout" class="me-2" data-acorn-size="17"></i>
-                        <span class="align-middle">Logout</span>
+                      <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                      </form>
                       </a>
                     </li>
                   </ul>
@@ -243,7 +244,7 @@
                               <td>{{ $post->quantity }}</td>
                               <td class="text center">
                                   @if ($post->image)
-                                      <img src="{{ asset('storage/images/' . $post->image) }}" alt="image"
+                                      <img src="{{ asset('storage/' . $post->image) }}" alt="image"
                                       style="max-width: 150px; max-height: 150px;">
                                   @endif
                               </td>

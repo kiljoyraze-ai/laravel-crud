@@ -12,4 +12,5 @@ Route::controller(LoginRegisterController::class)->group(function(){
     Route::get('/home', 'home')->name('home');
     Route::post('/logout', 'logout')->name('logout');
 });
+
 Route::resource('posts', PostController::class)->middleware('auth');
