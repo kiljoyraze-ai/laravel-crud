@@ -11,14 +11,16 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use App\Http\Controllers\Auth\PostController;
+use App\Models\Post;
 
 class LoginRegisterController extends Controller implements HasMiddleware
 {
     public static function middleware(): array
     {
         return [
-            new Middleware('guest', except: ['posts', 'logout']),
-            new Middleware('auth', only: ['posts', 'logout']),
+            new Middleware('guest', except: ['home', 'logout']),
+            new Middleware('auth', only: ['home', 'logout']),
         ];
     }
 
@@ -31,7 +33,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
     {
         $request->validate([
             'name' => 'required|string|max:250',
-            'email' => 'required|string|email:rfc,dns|max:250|unique:users,email',
+            'email' => 'required|string|max:250|unique:users,email',
             'password' => 'required|string|min:8|confirmed'
         ]);
 
@@ -45,7 +47,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
         Auth::attempt($credentials);
         $request->session()->regenerate();
         return redirect()->route('home')
-            ->with('You have successfully registered & logged in!');
+            ->withSuccess('You have successfully registered & logged in!');
     }
 
     public function login(): View
@@ -74,7 +76,8 @@ class LoginRegisterController extends Controller implements HasMiddleware
     
     public function home(): View
     {
-        return view('posts.index');
+        $posts = Post::all();
+        return view('auth.home', compact('posts'));
     } 
     
     public function logout(Request $request): RedirectResponse
@@ -83,6 +86,6 @@ class LoginRegisterController extends Controller implements HasMiddleware
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login')
-            ->with('You have logged out successfully!');
+            ->withSuccess('You have logged out successfully!');
     }
 }
