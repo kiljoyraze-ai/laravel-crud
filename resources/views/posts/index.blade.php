@@ -15,7 +15,7 @@
               <tr>
                   <th>Barang</th>
                   <th>Quantity</th>
-                  <th>Gambar</th>
+                  <th>Gambar Barang</th>
               </tr>
           </thead>
           <tbody>

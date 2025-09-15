@@ -232,7 +232,7 @@
                       <tr>
                           <th>Barang</th>
                           <th>Quantity</th>
-                          <th>Gambar</th>
+                          <th>Gambar Barang</th>
                           <th>Action</th>
                       </tr>
                   </thead>
