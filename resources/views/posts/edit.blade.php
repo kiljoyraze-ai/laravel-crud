@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form action="{{ route('posts.update', $post->id) }}" method="POST">
+    <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -49,6 +49,7 @@
                 name="image"
                 class="form-control @error('image') is-invalid @enderror"
                 accept="image/jpeg,image/jpg,image/png,image/webp">
+        
 
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>

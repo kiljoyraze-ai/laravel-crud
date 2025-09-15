@@ -111,7 +111,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <div class="modal-body">
+          <!-- <div class="modal-body">
             <div class="scroll-track-visible">
               <div class="mb-5" id="color">
                 <label class="mb-3 d-inline-block form-label">Color</label>
@@ -259,7 +259,7 @@
                     </div>
                   </a>
                 </div>
-              </div>
+              </div> -->
 
               <div class="mb-5" id="navcolor">
                 <label class="mb-3 d-inline-block form-label">Override Nav Palette</label>

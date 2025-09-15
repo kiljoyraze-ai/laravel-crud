@@ -52,7 +52,7 @@ class PostController extends Controller
 
         Post::create($validated);
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
+        return redirect()->route('home')->with('success', 'Barang berhasil ditambahkan.');
     }
 
     /**
@@ -76,35 +76,19 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        try  {
-            $validateData = $request->validate([
-            'barang' => 'required',
-            'quantity' => 'required',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
-            ]);
         
-            $imagePath = $post->image;
-            if ($request-> hasFile('image')) {
-                if ($imagePath) {
-                    Storage::disk('public')->delete('images/' . $imagePath);
-                }
-                $image = $request->file('image');
-                $imageName = $image->hashName();
-                $imagePath = $image->storeAs('/images', $imageName, 'public');
-            }
-
-            $post->update([
-                'barang' => $validateData['barang'],
-                'quantity' => $validateData['quantity'],
-                'image' => $imagePath,
-            ]);
-
-        return redirect()->route('posts.index')->with('succes', 'Post updateed successfully.');
-
+        $validateData = $request->validate([
+        'barang' => 'required',
+        'quantity' => 'required',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240', //validasi gambar, logikanya jika ada gambar maka harus sesuai validasi
+        ]);
+    
+        if ($post->image) {
+            Storage::disk('public')->delete('images/' . $post->image);
         }
-        catch (\Exception $e) {
-            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage() ]);
-        }
+        $post->update($validateData);
+        return redirect()->route('home')->with('success', 'Barang berhasil diperbarui.');
+
     }
 
     /**
@@ -118,7 +102,7 @@ class PostController extends Controller
         }
         $post->delete();
 
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
+        return redirect()->route('home')->with('success', 'Post deleted successfully');
         }catch (\Exception $e) {
             return back()->withErrors(['error' => 'An error occured .' . $e->getMessage()]);
         }

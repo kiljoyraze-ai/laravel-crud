@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Metik | Home</title>
+    <title>INVENTARIS | Home</title>
     <meta name="description" content="An empty page with a fluid vertical layout." />
     <!-- Favicon Tags Start -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('assets/img/favicon/apple-touch-icon-57x57.png')}}" />
@@ -67,14 +67,14 @@
           <!-- Logo End -->
 
           <!-- Language Switch Start -->
-          <div class="language-switch-container">
+          <!-- <div class="language-switch-container">
             <button class="btn btn-empty language-button dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EN</button>
             <div class="dropdown-menu">
               <a href="#" class="dropdown-item">DE</a>
               <a href="#" class="dropdown-item active">EN</a>
               <a href="#" class="dropdown-item">ES</a>
             </div>
-          </div>
+          </div> -->
           <!-- Language Switch End -->
 
           <!-- User Menu Start -->
@@ -89,10 +89,12 @@
                   <div class="text-extra-small text-primary">ACCOUNT</div>
                 </div>
                   <ul>
-                   <form action="{{ route('logout') }}" method="post">
+                    <li>
+                      <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -101,7 +103,7 @@
           <!-- User Menu End -->
 
           <!-- Icons Menu Start -->
-          <!-- <ul class="list-unstyled list-inline text-center menu-icons">
+          <ul class="list-unstyled list-inline text-center menu-icons">
             <li class="list-inline-item">
               <a href="#" data-bs-toggle="modal" data-bs-target="#searchPagesModal">
                 <i data-acorn-icon="search" data-acorn-size="18"></i>
@@ -157,7 +159,7 @@
                 </div>
               </div>
             </li>
-          </ul> -->
+          </ul>
           <!-- Icons Menu End -->
 
           <!-- Menu Start -->
@@ -203,10 +205,10 @@
             <div class="row">
               <!-- Title Start -->
               <div class="col-12 col-md-7">
-                <h1 class="mb-0 pb-0 display-4" id="title">Vertical Starter Page</h1>
+                <h1 class="mb-0 pb-0 display-4" id="title">Sistem Inventaris Barang</h1>
                 <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
                   <ul class="breadcrumb pt-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                   </ul>
                 </nav>
               </div>
@@ -218,7 +220,7 @@
           <!-- Content Start -->
           <div class="card mb-2">
             <div class="card-body h-100">
-              <h1>Posts</h1>
+              <h1>INVENTARIS BARANG</h1>
               <a href="{{ route('posts.create') }}">create</a>
 
               @if ($message = Session::get('success'))
@@ -241,16 +243,16 @@
                               <td>{{ $post->quantity }}</td>
                               <td class="text center">
                                   @if ($post->image)
-                                      <img src="{{ asset('public/storage/images/' . $post->image) }}" alt="image"
+                                      <img src="{{ asset('/storage/' . $post->image) }}" alt="image"
                                       style="max-width: 150px; max-height: 150px;">
                                   @endif
                               </td>
                               <td><a href="{{ route('posts.show' , $post->id) }}">Show</a>
-                              <a href="{{ route('posts.edit' , $post->id) }}">Edit</a>
+                                  <a href="{{ route('posts.edit' , $post->id) }}">Edit</a>
                               <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
-                                  <button type="submit">Delete</button>
+                                  <button type="submit" class="btn btn-danger">Delete</button>
                               </form>
                               </td>
                           </tr>
