@@ -47,7 +47,7 @@ class PostController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $validated['image'] = $request->file('image')->store('images', 'public'); //masih ada yang harus diperbaiki di bagian PATH
         }
 
         Post::create($validated);
@@ -85,7 +85,11 @@ class PostController extends Controller
     
         if ($post->image) {
             Storage::disk('public')->delete('images/' . $post->image);
+            $validateData['image'] = $request->file('image')->store('images', 'public');
         }
+
+        
+
         $post->update($validateData);
         return redirect()->route('home')->with('success', 'Barang berhasil diperbarui.');
 

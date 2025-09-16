@@ -25,7 +25,7 @@
                       <td>{{ $post->quantity }}</td>
                       <td class="text center">
                           @if ($post->image)
-                              <img src="{{ asset('storage/' . $post->image) }}" alt="image"
+                              <img src="{{ asset('/storage/' . $post->image) }}" alt="image"
                               style="max-width: 150px; max-height: 150px;">
                           @endif
                       </td>

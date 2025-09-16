@@ -168,7 +168,7 @@
               <li>
                 <a href=" {{ route('posts.index')}}">
                   <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
-                  <span class="label">Post</span>
+                  <span class="label">POst</span>
                 </a>
               </li>
             </ul>
@@ -218,13 +218,14 @@
           <!-- Title and Top Buttons End -->
 
           <!-- Content Start -->
+           <!-- tampilan masih ada yang harus di benarkan -->
           <div class="card mb-2">
             <div class="card-body h-100">
               <h1>INVENTARIS BARANG</h1>
-              <a href="{{ route('posts.create') }}">create</a>
-
+              <a href="{{ route('posts.create') }}" class="btn btn-primary">Tambah Barang Baru</a>
+            
               @if ($message = Session::get('success'))
-                  <div>{{ $message }}</div>
+                  <div class="alert alert-success">{{ $message }}</div>
               @endif
 
               <table class="table table-bordered border-info">
@@ -247,14 +248,17 @@
                                       style="max-width: 150px; max-height: 150px;">
                                   @endif
                               </td>
-                              <td><a href="{{ route('posts.show' , $post->id) }}">Show</a>
-                                  <a href="{{ route('posts.edit' , $post->id) }}">Edit</a>
-                              <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button type="submit" class="btn btn-danger">Delete</button>
-                              </form>
-                              </td>
+                              <td>
+                              <div class="d-flex align-items-center gap-2">
+                                  <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary btn-sm">Lihat Barang</a>
+                                  <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Ubah Barang</a>
+                                  <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="btn btn-danger btn-sm">Hapus Barang</button>
+                                  </form>
+                              </div>
+                          </td>
                           </tr>
                       @endforeach
                   </tbody>

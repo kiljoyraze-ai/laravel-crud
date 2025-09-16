@@ -30,7 +30,7 @@
                 <label class="form-label">Image</label>
                 <div class="border rounded p-3 bg-light">
                     <div class="d-flex align-items-center gap-3">
-                        <img    src="{{ asset('storage/' . $post->image) }}"
+                        <img    src="{{ asset('/storage/' . $post->image) }}"
                                 alt="Current Image"
                                 class="img-thumbnail"
                                 style="width: 100px; height: 100px; object-fit: cover;">
