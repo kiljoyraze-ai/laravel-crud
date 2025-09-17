@@ -23,3 +23,4 @@ Route::controller(LoginRegisterController::class)->group(function(){
 
 // Tentukan rute resource untuk posts dengan middleware otentikasi.
 Route::resource('posts', PostController::class)->middleware('auth');
+ 

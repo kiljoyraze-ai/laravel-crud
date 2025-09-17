@@ -25,5 +25,14 @@
     <div class="mt-auto text-end">
         <a href="{{ route('home') }}" class="btn btn-danger btn-sm">Back to Dashboard</a>
     </div>
+    <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+      @csrf
+      @method('DELETE')
+      <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+        <button type="submit" class="btn btn-danger btn-sm">Hapus Barang</button>
+    </form>
+     <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px;"></div>
+        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Ubah Barang</a>
+    </div>
 </div>
 @endsection
