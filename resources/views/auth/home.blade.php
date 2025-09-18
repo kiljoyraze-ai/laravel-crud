@@ -10,26 +10,26 @@
     <title>INVENTARIS | Home</title>
     <meta name="description" content="An empty page with a fluid vertical layout." />
     <!-- Favicon Tags Start -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('assets/img/favicon/apple-touch-icon-57x57.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/img/favicon/apple-touch-icon-114x114.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/img/favicon/apple-touch-icon-72x72.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/img/favicon/apple-touch-icon-144x144.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ asset('assets/img/favicon/apple-touch-icon-60x60.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('assets/img/favicon/apple-touch-icon-120x120.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset('assets/img/favicon/apple-touch-icon-76x76.png')}}" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('assets/img/favicon/apple-touch-icon-152x152.png')}}" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/favicon-196x196.png')}}" sizes="196x196" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/favicon-96x96.png')}}" sizes="96x96" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/favicon-32x32.png')}}" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/favicon-16x16.png')}}" sizes="16x16" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/favicon-128.png')}}" sizes="128x128" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('assets/img/favicon/barang.png')}}" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/barang.png')}}" sizes="196x196" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/barang.png')}}" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/barang.png')}}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/barang.png')}}" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon/barang.png')}}" sizes="128x128" />
     <meta name="application-name" content="&nbsp;" />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicon/mstile-144x144.png')}}" />
-    <meta name="msapplication-square70x70logo" content="{{ asset('assets/img/favicon/mstile-70x70.png')}}" />
-    <meta name="msapplication-square150x150logo" content="{{ asset('assets/img/favicon/mstile-150x150.png')}}" />
-    <meta name="msapplication-wide310x150logo" content="{{ asset('assets/img/favicon/mstile-310x150.png')}}" />
-    <meta name="msapplication-square310x310logo" content="{{ asset('assets/img/favicon/mstile-310x310.png')}}" />
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicon/barang.png')}}" />
+    <meta name="msapplication-square70x70logo" content="{{ asset('assets/img/favicon/barang.png')}}" />
+    <meta name="msapplication-square150x150logo" content="{{ asset('assets/img/favicon/barang.png')}}" />
+    <meta name="msapplication-wide310x150logo" content="{{ asset('assets/img/favicon/barang.png')}}" />
+    <meta name="msapplication-square310x310logo" content="{{ asset('assets/img/favicon/barang.png')}}" />
     <!-- Favicon Tags End -->
     <!-- Font Tags Start -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -55,27 +55,13 @@
       <div id="nav" class="nav-container d-flex">
         <div class="nav-content d-flex">
           <!-- Logo Start -->
-          <div class="logo position-relative">
-            <a href="index.html">
+          <div class="logo position-relative" >
+            <a href="{{ route('home') }}">
               <!-- Logo can be added directly -->
-              <!-- <img src="img/logo/logo-white.svg" alt="logo" /> -->
-
-              <!-- Or added via css to provide different ones for different color themes -->
-              <div class="img"></div>
+              <img src="{{ asset('assets/img/logo/barang2.png') }}" alt="logo" />
             </a>
           </div>
           <!-- Logo End -->
-
-          <!-- Language Switch Start -->
-          <!-- <div class="language-switch-container">
-            <button class="btn btn-empty language-button dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EN</button>
-            <div class="dropdown-menu">
-              <a href="#" class="dropdown-item">DE</a>
-              <a href="#" class="dropdown-item active">EN</a>
-              <a href="#" class="dropdown-item">ES</a>
-            </div>
-          </div> -->
-          <!-- Language Switch End -->
 
           <!-- User Menu Start -->
           <div class="user-container d-flex">
@@ -198,44 +184,7 @@
                 <i data-acorn-icon="light-off" class="dark" data-acorn-size="18"></i>
               </a>
             </li>
-            <li class="list-inline-item">
-              <a href="#" data-bs-toggle="dropdown" data-bs-target="#notifications" aria-haspopup="true" aria-expanded="false" class="notification-button">
-                <!-- <div class="position-relative d-inline-flex">
-                  <i data-acorn-icon="bell" data-acorn-size="18"></i>
-                  <span class="position-absolute notification-dot rounded-xl"></span>
-                </div> -->
-              </a>
-              <div class="dropdown-menu dropdown-menu-end wide notification-dropdown scroll-out" id="notifications">
-                <div class="scroll">
-                  <!-- <ul class="list-unstyled border-last-none">
-                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-1.webp" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">Joisse Kaycee just sent a new comment!</a>
-                      </div>
-                    </li>
-                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-2.webp" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">New order received! It is total $147,20.</a>
-                      </div>
-                    </li>
-                    <li class="mb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-3.webp" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">3 items just added to wish list by a user!</a>
-                      </div>
-                    </li>
-                    <li class="pb-3 pb-3 border-bottom border-separator-light d-flex">
-                      <img src="img/profile/profile-6.webp" class="me-3 sw-4 sh-4 rounded-xl align-self-center" alt="..." />
-                      <div class="align-self-center">
-                        <a href="#">Kirby Peters just sent a new message!</a>
-                      </div>
-                    </li>
-                  </ul> -->
-                </div>
-              </div>
-            </li>
+
           </ul>
           <!-- Icons Menu End -->
 
@@ -245,14 +194,14 @@
             <ul id="menu" class="menu">
               <li>
                 <a href="{{ route('home') }}">
-                  <i data-acorn-icon="grid-2" class="icon" data-acorn-size="18"></i>
-                  <span class="label">Horizontal</span>
+                  <i data-acorn-icon="home" class="icon" data-acorn-size="18"></i>
+                  <span class="label">Home</span>
                 </a>
               </li>
               <li>
                 <a href="{{ route('home') }}">
-                  <i data-acorn-icon="grid-3" class="icon" data-acorn-size="18"></i>
-                  <span class="label">Vertical</span>
+                  <i data-acorn-icon="web-page" class="icon" data-acorn-size="18"></i>
+                  <span class="label">Dashboard</span>
                 </a>
               </li>
             </ul>
@@ -307,8 +256,12 @@
           <div class="card mb-2">
             <div class="card-body h-100">
               <h1>INVENTARIS BARANG</h1>
-              <a href="{{ route('posts.create') }}" class="btn btn-primary">Tambah Barang Baru</a>
-            
+              <a href="{{ route('posts.create') }}" class="btn btn-primary"> 
+                  <i data-acorn-icon="home-garage" class="icon" data-acorn-size="18"></i>
+                  Tambah Barang Baru
+              </a>
+
+              
               @if ($message = Session::get('success'))
                   <div class="alert alert-success">{{ $message }}</div>
               @endif

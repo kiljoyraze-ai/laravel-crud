@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Create')
 @section('content')
-    <h1>Create Post</h1>
+    <h1>Membuat Data Barang</h1>
 
     @if ($errors->any())
         <div>

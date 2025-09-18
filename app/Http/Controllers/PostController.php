@@ -83,12 +83,14 @@ class PostController extends Controller
         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240', //validasi gambar, logikanya jika ada gambar maka harus sesuai validasi
         ]);
     
-        if ($post->image) {
-            Storage::disk('public')->delete('images/' . $post->image);
-            $validateData['image'] = $request->file('image')->store('images', 'public');
-        }
-
-        
+       if ($request->hasFile('image')) {
+            // hapus gambar lama kalau ada
+         if ($post->image) {
+             Storage::disk('public')->delete('images/' . $post->image);
+         }
+            // simpan gambar baru
+         $validateData['image'] = $request->file('image')->store('images', 'public');
+       }
 
         $post->update($validateData);
         return redirect()->route('home')->with('success', 'Barang berhasil diperbarui.');

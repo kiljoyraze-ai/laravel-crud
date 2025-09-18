@@ -11,7 +11,7 @@
 
     <!-- Label Quantity -->
     <label for="quantity">Quantity:</label>
-    <p id="quantity">{{ $post->quantity }}</p>
+    <h3 id="quantity">{{ $post->quantity }}<h3/>
 
     <!-- Label Barang (untuk gambar) -->
     <label for="gambar">Barang:</label>
