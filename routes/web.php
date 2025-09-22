@@ -18,7 +18,7 @@ Route::controller(LoginRegisterController::class)->group(function(){
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
     Route::post('/logout', 'logout')->name('logout');
-    Route::get('/home', 'home')->name('home'); // Rute ini tidak perlu di dalam grup terpisah
+    Route::get('/home', 'home')->name('home'); 
 });
 
 // Tentukan rute resource untuk posts dengan middleware otentikasi.

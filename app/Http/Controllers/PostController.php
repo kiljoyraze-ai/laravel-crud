@@ -17,7 +17,7 @@ class PostController extends Controller
      public static function middleware(): array
     {
         return [
-            new Middleware('guest', except: ['home', 'logout']),
+            new Middleware('guest', except: ['home', 'logout']), 
             new Middleware('auth', only: ['home', 'logout']),
         ];
     }
@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create'); //code ini mengarahkan ke halaman create
     }
 
     /**
@@ -43,16 +43,16 @@ class PostController extends Controller
         $validated = $request->validate([
             'barang'   => 'required',
             'quantity' => 'required',
-            'image'   => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-        ]);
+            'image'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
+        ]); // kode ini untuk memvalidasi inputan dari form
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public'); //masih ada yang harus diperbaiki di bagian PATH
+            $validated['image'] = $request->file('image')->store('images', 'public'); //kode ini untuk menyimpan file gambar ke dalam folder 'images' di dalam storage/app/public
         }
 
         Post::create($validated);
 
-        return redirect()->route('home')->with('success', 'Barang berhasil ditambahkan.');
+        return redirect()->route('home')->with('success', 'Barang berhasil ditambahkan.'); 
     }
 
     /**
@@ -91,7 +91,7 @@ class PostController extends Controller
             // simpan gambar baru
          $validateData['image'] = $request->file('image')->store('images', 'public');
        }
-
+        // ketika gambar null maka gambar tidak diupdate
         $post->update($validateData);
         return redirect()->route('home')->with('success', 'Barang berhasil diperbarui.');
 
@@ -108,7 +108,7 @@ class PostController extends Controller
         }
         $post->delete();
 
-        return redirect()->route('home')->with('success', 'Post deleted successfully');
+        return redirect()->route('home')->with('success', 'Barang berhasil dihapus.');
         }catch (\Exception $e) {
             return back()->withErrors(['error' => 'An error occured .' . $e->getMessage()]);
         }
